@@ -3,6 +3,49 @@ import Router from 'react-router';
 import ReactDom from 'react-dom';
 import {DefaultRoute,Link,Route,RouteHandler} from 'react-router';
 import HelloHandler from './hello.js';
+import {Grid,Row,Col,Breadcrumb} from 'react-bootstrap';
+import Hello from './hello'
+
+class App extends React.Component{
+  render(){
+    return(
+      <div>
+      <Breadcrumb>
+        <Breadcrumb.Item href="#">
+        Home
+        </Breadcrumb.Item>
+        <Breadcrumb.Item href="http://www.baidu.com">
+        Library
+        </Breadcrumb.Item>
+        <Breadcrumb.Item active>
+        Data
+        </Breadcrumb.Item>
+      </Breadcrumb>
+      <Grid>
+        <Row>
+          <Col md={4}>
+            <h1>hello,world</h1>
+          </Col>
+          <Col md={8}>
+            <h1>hello,webpack</h1>
+          </Col>
+          <Col md={12}>
+            <Hello />
+          </Col>
+        </Row>
+      </Grid>
+      </div>
+    )
+  }
+}
+
+ReactDom.render(
+  <App />,
+  document.getElementById('react')
+)
+
+
+
 // class App extends React.Component({
 //   render() {
 //     return (
@@ -28,15 +71,3 @@ import HelloHandler from './hello.js';
 //     document.body
 //   )
 // })
-class App extends React.Component{
-  render(){
-    return(
-      <div>hahah</div>
-    )
-  }
-}
-
-ReactDom.render(
-  <App />,
-  document.body
-)
