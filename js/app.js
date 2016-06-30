@@ -4,16 +4,17 @@ import {DefaultRoute,Link,Route,RouteHandler,Router,hashHistory} from 'react-rou
 import HelloHandler from './hello.js';
 import {Grid,Row,Col,Breadcrumb} from 'react-bootstrap';
 import Hello from './hello'
+import Repos from './repos'
 
 class App extends React.Component{
   render(){
     return(
       <div>
       <Breadcrumb>
-        <Breadcrumb.Item href="/#">
+        <Breadcrumb.Item href="/#/repos">
         首页
         </Breadcrumb.Item>
-        <Breadcrumb.Item href="/#/haha">
+        <Breadcrumb.Item href="/#/hello">
         haha
         </Breadcrumb.Item>
         <Breadcrumb.Item active>
@@ -23,61 +24,30 @@ class App extends React.Component{
       <Grid>
         <Row>
           <Col md={4}>
-            <h1>这是首页!!!</h1>
+            <h1>这是首页!!!先加载了首页</h1>
             <h5>react router测试!!!</h5>
           </Col>
           <Col md={8}>
-            <h1>hello,webpack</h1>
+            <h1>点击面包屑导航会使得下面加载repos.js和hello.js中的组件</h1>
           </Col>
           <Col md={12}>
-            <Hello />
+          {this.props.children}
           </Col>
         </Row>
       </Grid>
+
       </div>
     )
-  }
-}
-
-class Haha extends React.Component{
-  render() {
-    return (
-      <div>
-      <Breadcrumb>
-        <Breadcrumb.Item href="/#">
-        首页
-        </Breadcrumb.Item>
-        <Breadcrumb.Item href="/#/haha">
-        haha
-        </Breadcrumb.Item>
-        <Breadcrumb.Item active>
-        Data
-        </Breadcrumb.Item>
-      </Breadcrumb>
-      <Grid>
-        <Row>
-          <Col md={4}>
-            <h1>hahahaahahaha,react-router</h1>
-            <h5>碉堡了！！！！</h5>
-          </Col>
-          <Col md={8}>
-            <h1>hello,react-router</h1>
-          </Col>
-          <Col md={12}>
-            <Hello />
-          </Col>
-        </Row>
-      </Grid>
-      </div>
-    );
   }
 }
 
 ReactDom.render((
   <Router history={hashHistory}>
     <Route path="/" component={App}>
+      <Route path="/repos" component={Repos} />
+      <Route path="/hello" component={Hello} />
     </Route>
-    <Route path="/haha" component={Haha} />
+
   </Router>
 ),
   document.getElementById('react')

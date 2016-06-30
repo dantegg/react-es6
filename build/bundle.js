@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "fe61fb415e69e72ef970"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "6e857cfe3055944a8074"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -615,6 +615,10 @@
 
 	var _hello4 = _interopRequireDefault(_hello3);
 
+	var _repos = __webpack_require__(495);
+
+	var _repos2 = _interopRequireDefault(_repos);
+
 	function _interopRequireDefault(obj) {
 	  return obj && obj.__esModule ? obj : { default: obj };
 	}
@@ -649,33 +653,14 @@
 	  _createClass(App, [{
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement('div', null, _react2.default.createElement(_reactBootstrap.Breadcrumb, null, _react2.default.createElement(_reactBootstrap.Breadcrumb.Item, { href: '/#' }, '首页'), _react2.default.createElement(_reactBootstrap.Breadcrumb.Item, { href: '/#/haha' }, 'haha'), _react2.default.createElement(_reactBootstrap.Breadcrumb.Item, { active: true }, 'Data')), _react2.default.createElement(_reactBootstrap.Grid, null, _react2.default.createElement(_reactBootstrap.Row, null, _react2.default.createElement(_reactBootstrap.Col, { md: 4 }, _react2.default.createElement('h1', null, '这是首页!!!'), _react2.default.createElement('h5', null, 'react router测试!!!')), _react2.default.createElement(_reactBootstrap.Col, { md: 8 }, _react2.default.createElement('h1', null, 'hello,webpack')), _react2.default.createElement(_reactBootstrap.Col, { md: 12 }, _react2.default.createElement(_hello4.default, null)))));
+	      return _react2.default.createElement('div', null, _react2.default.createElement(_reactBootstrap.Breadcrumb, null, _react2.default.createElement(_reactBootstrap.Breadcrumb.Item, { href: '/#/repos' }, '首页'), _react2.default.createElement(_reactBootstrap.Breadcrumb.Item, { href: '/#/hello' }, 'haha'), _react2.default.createElement(_reactBootstrap.Breadcrumb.Item, { active: true }, 'Data')), _react2.default.createElement(_reactBootstrap.Grid, null, _react2.default.createElement(_reactBootstrap.Row, null, _react2.default.createElement(_reactBootstrap.Col, { md: 4 }, _react2.default.createElement('h1', null, '这是首页!!!先加载了首页'), _react2.default.createElement('h5', null, 'react router测试!!!')), _react2.default.createElement(_reactBootstrap.Col, { md: 8 }, _react2.default.createElement('h1', null, '点击面包屑导航会使得下面加载repos.js和hello.js中的组件')), _react2.default.createElement(_reactBootstrap.Col, { md: 12 }, this.props.children))));
 	    }
 	  }]);
 
 	  return App;
 	}(_react2.default.Component);
 
-	var Haha = function (_React$Component2) {
-	  _inherits(Haha, _React$Component2);
-
-	  function Haha() {
-	    _classCallCheck(this, Haha);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Haha).apply(this, arguments));
-	  }
-
-	  _createClass(Haha, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement('div', null, _react2.default.createElement(_reactBootstrap.Breadcrumb, null, _react2.default.createElement(_reactBootstrap.Breadcrumb.Item, { href: '/#' }, '首页'), _react2.default.createElement(_reactBootstrap.Breadcrumb.Item, { href: '/#/haha' }, 'haha'), _react2.default.createElement(_reactBootstrap.Breadcrumb.Item, { active: true }, 'Data')), _react2.default.createElement(_reactBootstrap.Grid, null, _react2.default.createElement(_reactBootstrap.Row, null, _react2.default.createElement(_reactBootstrap.Col, { md: 4 }, _react2.default.createElement('h1', null, 'hahahaahahaha,react-router'), _react2.default.createElement('h5', null, '碉堡了！！！！')), _react2.default.createElement(_reactBootstrap.Col, { md: 8 }, _react2.default.createElement('h1', null, 'hello,react-router')), _react2.default.createElement(_reactBootstrap.Col, { md: 12 }, _react2.default.createElement(_hello4.default, null)))));
-	    }
-	  }]);
-
-	  return Haha;
-	}(_react2.default.Component);
-
-	_reactDom2.default.render(_react2.default.createElement(_reactRouter.Router, { history: _reactRouter.hashHistory }, _react2.default.createElement(_reactRouter.Route, { path: '/', component: App }), _react2.default.createElement(_reactRouter.Route, { path: '/haha', component: Haha })), document.getElementById('react'));
+	_reactDom2.default.render(_react2.default.createElement(_reactRouter.Router, { history: _reactRouter.hashHistory }, _react2.default.createElement(_reactRouter.Route, { path: '/', component: App }, _react2.default.createElement(_reactRouter.Route, { path: '/repos', component: _repos2.default }), _react2.default.createElement(_reactRouter.Route, { path: '/hello', component: _hello4.default }))), document.getElementById('react'));
 
 	// class App extends React.Component({
 	//   render() {
@@ -26536,7 +26521,7 @@
 	var Hello = _react2.default.createClass({
 	  displayName: 'Hello',
 	  render: function render() {
-	    return _react2.default.createElement('div', null, 'Hello world!');
+	    return _react2.default.createElement('div', null, _react2.default.createElement('h1', null, '来自hellojs的helloworld'));
 	  }
 	});
 
@@ -45830,6 +45815,33 @@
 	var _ValidComponentChildren3 = _interopRequireDefault(_ValidComponentChildren2);
 
 	exports.ValidComponentChildren = _ValidComponentChildren3['default'];
+
+/***/ },
+/* 495 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	var Repos = _react2.default.createClass({
+	  displayName: 'Repos',
+	  render: function render() {
+	    return _react2.default.createElement('div', null, _react2.default.createElement('h1', null, '来自repos的helloworld！！！'));
+	  }
+	});
+
+	exports.default = Repos;
 
 /***/ }
 /******/ ]);
