@@ -1,0 +1,8 @@
+"build": "webpack --progress --colors"
+"build": "webpack --progress --profile --colors --config webpack.production.config.js"
+
+
+"scripts": {
+  "start": "webpack-dev-server --hot --inline",
+  "build": "webpack --progress --profile --colors --config webpack.production.config.js"
+}

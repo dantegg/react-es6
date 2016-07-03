@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "6e857cfe3055944a8074"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "74adfa772e5afa777f40"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -653,7 +653,7 @@
 	  _createClass(App, [{
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement('div', null, _react2.default.createElement(_reactBootstrap.Breadcrumb, null, _react2.default.createElement(_reactBootstrap.Breadcrumb.Item, { href: '/#/repos' }, '首页'), _react2.default.createElement(_reactBootstrap.Breadcrumb.Item, { href: '/#/hello' }, 'haha'), _react2.default.createElement(_reactBootstrap.Breadcrumb.Item, { active: true }, 'Data')), _react2.default.createElement(_reactBootstrap.Grid, null, _react2.default.createElement(_reactBootstrap.Row, null, _react2.default.createElement(_reactBootstrap.Col, { md: 4 }, _react2.default.createElement('h1', null, '这是首页!!!先加载了首页'), _react2.default.createElement('h5', null, 'react router测试!!!')), _react2.default.createElement(_reactBootstrap.Col, { md: 8 }, _react2.default.createElement('h1', null, '点击面包屑导航会使得下面加载repos.js和hello.js中的组件')), _react2.default.createElement(_reactBootstrap.Col, { md: 12 }, this.props.children))));
+	      return _react2.default.createElement('div', null, _react2.default.createElement(_reactBootstrap.Breadcrumb, null, _react2.default.createElement(_reactBootstrap.Breadcrumb.Item, { href: '/#/repos' }, '首页'), _react2.default.createElement(_reactBootstrap.Breadcrumb.Item, { href: '/#/hello' }, 'haha'), _react2.default.createElement(_reactBootstrap.Breadcrumb.Item, { active: true }, 'Data')), _react2.default.createElement(_reactBootstrap.Grid, null, _react2.default.createElement(_reactBootstrap.Row, null, _react2.default.createElement(_reactBootstrap.Col, { md: 4 }, _react2.default.createElement('h1', null, '这是首页!!!先加载了首页啊啊啊啊!!!LOL!!!'), _react2.default.createElement('h5', null, 'react router测试!!!')), _react2.default.createElement(_reactBootstrap.Col, { md: 8 }, _react2.default.createElement('h5', null, '点击面包屑导航会使得下面加载repos.js和hello.js中的组件！！！')), _react2.default.createElement(_reactBootstrap.Col, { md: 12 }, this.props.children))));
 	    }
 	  }]);
 
