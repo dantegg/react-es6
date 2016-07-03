@@ -9,7 +9,7 @@ react es6
 
 * reac-router<br />
 
->run demo
+>run demo<br />
 '''
 npm install
 npm start
