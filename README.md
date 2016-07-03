@@ -14,8 +14,8 @@ react es6
 >run demo<br />
 
 
-'''
+```
 npm install
 npm start
 
-'''
+```
