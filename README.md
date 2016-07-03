@@ -5,11 +5,15 @@ react es6
 ## a react demo
 
 >a react demo based on es6 , react-router
+
+
 * es6<br />
 
 * reac-router<br />
 
 >run demo<br />
+
+
 '''
 npm install
 npm start
