@@ -5,6 +5,7 @@ let Hello = React.createClass({
     return (
       <div>
       <h1>来自hellojs的helloworld</h1>
+        {this.props.children}
       </div>
     )
   }

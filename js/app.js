@@ -6,8 +6,10 @@ import HelloHandler from './hello.js';
 import {Grid,Row,Col,Breadcrumb} from 'react-bootstrap';
 import Hello from './hello'
 import Repos from './repos'
+import HelloSecond from './hellowSecond'
 
-const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
+//const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
+const appHistory = useRouterHistory(createHashHistory)();
 
 class App extends React.Component{
   render(){
@@ -19,6 +21,9 @@ class App extends React.Component{
         </Breadcrumb.Item>
         <Breadcrumb.Item href="/#/hello">
         haha
+        </Breadcrumb.Item>
+        <Breadcrumb.Item href="/#/hello/second">
+          haha的二级目录
         </Breadcrumb.Item>
         <Breadcrumb.Item active>
         Data
@@ -48,7 +53,9 @@ ReactDom.render((
   <Router history={appHistory}>
     <Route path="/" component={App}>
       <Route path="/repos" component={Repos} />
-      <Route path="/hello" component={Hello} />
+      <Route path="/hello" component={Hello}>
+         <Route path="second" component={HelloSecond} />
+      </Route>
     </Route>
 
   </Router>
