@@ -26,7 +26,8 @@ module.exports = {
     },
     devServer: {
         hot: true,
-        inline: true
+        inline: true,
+        host:'192.168.11.188',
     },
     plugins: [
       new webpack.NoErrorsPlugin(),

@@ -9,24 +9,27 @@ import Repos from './repos'
 import HelloSecond from './hellowSecond'
 
 //const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
-const appHistory = useRouterHistory(createHashHistory)();
+//const appHistory = useRouterHistory(createHashHistory)();
 
 class App extends React.Component{
   render(){
     return(
       <div>
       <Breadcrumb>
-        <Breadcrumb.Item href="/#/repos">
+        <Breadcrumb.Item href="/index/repos">
         首页
         </Breadcrumb.Item>
-        <Breadcrumb.Item href="/#/hello">
+        <Breadcrumb.Item href="/index/hello">
         haha
         </Breadcrumb.Item>
-        <Breadcrumb.Item href="/#/hello/second">
-          haha的二级目录
+        <Breadcrumb.Item>
+          <Link to='/index/hello/second'>haha的二级目录</Link>
         </Breadcrumb.Item>
         <Breadcrumb.Item active>
         Data
+        </Breadcrumb.Item>
+        <Breadcrumb.Item href="/test">
+          go to test
         </Breadcrumb.Item>
       </Breadcrumb>
       <Grid>
@@ -50,10 +53,10 @@ class App extends React.Component{
 }
 
 ReactDom.render((
-  <Router history={appHistory}>
-    <Route path="/" component={App}>
-      <Route path="/repos" component={Repos} />
-      <Route path="/hello" component={Hello}>
+  <Router history={browserHistory}>
+    <Route path="/index" component={App}>
+      <Route path="repos" component={Repos} />
+      <Route path="hello" component={Hello}>
          <Route path="second" component={HelloSecond} />
       </Route>
     </Route>
