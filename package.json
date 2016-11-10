@@ -37,7 +37,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --hot --inline",
+    "start": "webpack-dev-server --devtool eval --progress --hot --colors  --history-api-fallback  --display-error-details",
     "build": "webpack --progress --profile --colors --config webpack.production.config.js"
   }
 }
