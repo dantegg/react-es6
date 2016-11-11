@@ -9,5 +9,15 @@
 <body>
     <div id="react"></div>
     <script src="/test.js" charset="utf-8"></script>
+    <script src="http://cdn.bootcss.com/jquery/2.1.1/jquery.js"></script>
+    <script>
+        $.ajax({
+            type:"get",
+            url:"/api/findzzz",
+            success:function (res) {
+                console.log(res)
+            }
+        })
+    </script>
 </body>
 </html>

@@ -5,7 +5,9 @@ var express = require('express')
 var bodyParser = require('body-parser')
 var cookieParser = require('cookie-parser')
 var expressSession = require('express-session')
+var proxy = require('express-http-proxy')
 var ejs = require('ejs')
+var http = require('http')
 
 var app = express()
 
@@ -41,12 +43,42 @@ app.get('/',function (req,res) {
 
 app.get('/index*',function (req,res) {
     req.session.user = 'dantegg'
-    res.sendfile('./views/index.html')
+    res.render('index.html')
 })
 
 app.get('/test*',function (req,res) {
     console.log(req.session)
-    res.sendfile('./views/test.html')
+    res.render('test.html')
+})
+
+app.get('/api*',function (req,res) {
+    //console.log('zzz',req.url)
+    var opt = {
+        host:'192.168.11.123',
+        port:'80',
+        method:'GET',//这里是发送的方法
+        path:'/findUserSimbol_User.action',     //这里是访问的路径
+        headers:{
+            'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8',
+            'Accept': 'application/json, text/javascript,*/*'
+        }
+    }
+    var body = ''
+    var testreq = http.request(opt,function (result) {
+        console.log("Got response: " + result.statusCode);
+        result.on('data',function(d){
+            body += d;
+        }).on('end', function(){
+            //console.log(result.headers)
+            var resbody = JSON.parse(body)
+            res.send(resbody)
+            console.log(JSON.parse(body))
+        });
+
+    }).on('error', function(e) {
+        console.log("Got error: " + e.message);
+    })
+    testreq.end();
 })
 
 //page 404
