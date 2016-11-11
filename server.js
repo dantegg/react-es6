@@ -8,6 +8,7 @@ var expressSession = require('express-session')
 var proxy = require('express-http-proxy')
 var ejs = require('ejs')
 var http = require('http')
+var request = require('request')
 
 var app = express()
 
@@ -25,9 +26,9 @@ app.use(expressSession({
 
 
 app.use(function(req, res, next){
-    res.locals.user = req.session.user;
+    //res.locals.user = req.session.user;
     var err = req.session.error;
-    res.locals.message = '';
+    //res.locals.message = '';
     //if (err) res.locals.message = '<div style="margin-bottom: 20px;color:red;">' + err + '</div>';
     next();
 });
@@ -42,43 +43,33 @@ app.get('/',function (req,res) {
 })
 
 app.get('/index*',function (req,res) {
-    req.session.user = 'dantegg'
     res.render('index.html')
 })
 
 app.get('/test*',function (req,res) {
-    console.log(req.session)
+    console.log('test',req.session)
     res.render('test.html')
 })
 
-app.get('/api*',function (req,res) {
-    //console.log('zzz',req.url)
-    var opt = {
-        host:'192.168.11.123',
-        port:'80',
-        method:'GET',//这里是发送的方法
-        path:'/findUserSimbol_User.action',     //这里是访问的路径
-        headers:{
-            'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8',
-            'Accept': 'application/json, text/javascript,*/*'
-        }
-    }
-    var body = ''
-    var testreq = http.request(opt,function (result) {
-        console.log("Got response: " + result.statusCode);
-        result.on('data',function(d){
-            body += d;
-        }).on('end', function(){
-            //console.log(result.headers)
-            var resbody = JSON.parse(body)
-            res.send(resbody)
-            console.log(JSON.parse(body))
-        });
-
-    }).on('error', function(e) {
-        console.log("Got error: " + e.message);
+app.get('/api/findUserSimbo',function (req,res) {
+    //console.log(zzz.session)
+    request({method:'GET',uri:'http://192.168.11.123/findUserSimbol_User.action',jar:true},function (err,httpResponse,body) {
+        console.log(body)
+        res.send(body)
     })
-    testreq.end();
+})
+
+
+app.get('/api/loginUser',function (req,res) {
+
+    request({method: 'POST',uri:'http://192.168.11.123/userLogin_User.action',jar:true,form:{loginName:'sss',pwd:"123456"}},function (err,httpResponse,body) {
+        console.log(body)
+        var zzz = JSON.parse(body)
+        console.log(zzz.json)
+        req.session.user = 'dantegg2'
+        res.send({'login':'success'})
+        //req.session.user='dantegg2'
+    })
 })
 
 //page 404
