@@ -1,10 +1,13 @@
 var webpack = require('webpack');
-
+var path = require('path');
 module.exports = {
-    entry: "./js/app.js",
+    entry: {
+        'app': path.join(__dirname,'/js/app.js'),
+        'test': path.join(__dirname,'/js/test.js'),
+    },
     output: {
         path: './build',
-        filename: "bundle.js"
+        filename: "[name].js"
     },
     module: {
         loaders: [
